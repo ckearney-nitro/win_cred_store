@@ -1,0 +1,35 @@
+{
+	"version": "2.0.0",
+	"inputs": [
+		{
+			"id": "cert_command",
+			"type": "promptString",
+			"default": "remove",
+			"description": "Enter args",
+			"password": false
+		},
+		{
+			"id": "cert_command_value",
+			"type": "promptString",
+			"default": "nitro-imanage:",
+			"description": "Enter args",
+			"password": false
+		}
+	],
+	"tasks": [
+		{
+			"label": "Run w/ args ",
+			"type": "shell",
+			"problemMatcher": [
+				"$rustc"
+			],
+			"command": "cargo",
+			"args": [
+				"run",
+				"--",
+				"${input:cert_command}",
+				"${input:cert_command_value}"
+			]
+		},
+	]
+}
